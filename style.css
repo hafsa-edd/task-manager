@@ -1,0 +1,729 @@
+
+/* =========================================
+   1. VARIABLES ET CONFIGURATION
+========================================= */
+
+:root {
+    --primary: #8f2948;
+    --primary-light: #b43b60;
+    --primary-dark: #681c35;
+
+    --background: #111113;
+    --surface: #1a1a1e;
+    --surface-light: #222227;
+    --white: #ffffff;
+
+    --text: #f5f0f1;
+    --muted: #999197;
+    --border: #333037;
+
+    --success: #55b995;
+    --warning: #e5ad65;
+    --danger: #e46b7c;
+
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(143, 41, 72, 0.12), transparent 30%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 45px 20px;
+}
+
+/* =========================================
+   2. CONTENEUR PRINCIPAL
+========================================= */
+
+.app-container {
+    max-width: 950px;
+    margin: auto;
+}
+
+/* =========================================
+   3. EN-TETE
+========================================= */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    color: white;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    box-shadow: 0 7px 22px rgba(143, 41, 72, 0.3);
+}
+
+.brand h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.brand p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.date-badge {
+    background: var(--surface);
+    padding: 12px 17px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.date-badge i {
+    color: var(--primary-light);
+}
+
+/* =========================================
+   4. SECTION DE BIENVENUE
+========================================= */
+
+.welcome-section {
+    background:
+        linear-gradient(110deg, rgba(104, 28, 53, 0.98), rgba(143, 41, 72, 0.85)),
+        var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 38px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 0 12px 30px rgba(104, 28, 53, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-section::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    right: 45px;
+    top: -115px;
+}
+
+.welcome-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.welcome-section h2 {
+    font-size: 30px;
+    margin: 13px 0;
+    font-weight: 800;
+}
+
+.welcome-section p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.welcome-icon {
+    font-size: 58px;
+    opacity: 0.85;
+    z-index: 1;
+}
+
+/* =========================================
+   5. CARTES STATISTIQUES
+========================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.stat-card p {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.stat-card h3 {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.stat-icon {
+    width: 47px;
+    height: 47px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+}
+
+.total-icon {
+    color: #e69ab0;
+    background: rgba(143, 41, 72, 0.2);
+}
+
+.completed-icon {
+    color: var(--success);
+    background: rgba(85, 185, 149, 0.12);
+}
+
+.pending-icon {
+    color: var(--warning);
+    background: rgba(229, 173, 101, 0.12);
+}
+
+/* =========================================
+   6. BARRE DE PROGRESSION
+========================================= */
+
+.progress-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 26px;
+    border-radius: 17px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.progress-header h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.progress-header p {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.progress-header span {
+    font-size: 20px;
+    font-weight: 800;
+    color: #df829d;
+}
+
+.progress-track {
+    height: 9px;
+    width: 100%;
+    background: #343038;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-dark), #d45b7e);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* =========================================
+   7. SECTION DES TACHES
+========================================= */
+
+.tasks-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.section-heading p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.task-counter {
+    background: rgba(143, 41, 72, 0.2);
+    color: #e69ab0;
+    border: 1px solid rgba(143, 41, 72, 0.35);
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================
+   8. FORMULAIRE D'AJOUT
+========================================= */
+
+.task-form {
+    display: flex;
+    gap: 12px;
+}
+
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0 15px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(143, 41, 72, 0.15);
+}
+
+.input-wrapper i {
+    color: var(--primary-light);
+}
+
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 16px 0;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--text);
+    background: transparent;
+}
+
+.input-wrapper input::placeholder {
+    color: #827b82;
+}
+
+.add-button {
+    border: none;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    color: white;
+    padding: 0 23px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(143, 41, 72, 0.3);
+}
+
+.add-button:active {
+    transform: scale(0.97);
+}
+
+.form-message {
+    min-height: 18px;
+    font-size: 11px;
+    color: var(--danger);
+    margin-top: 8px;
+}
+
+/* =========================================
+   9. LISTE DES TACHES
+========================================= */
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-list-header h3 {
+    font-size: 12px;
+}
+
+.task-list-header span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px 12px;
+    border-bottom: 1px solid #302d34;
+    border-radius: 9px;
+    transition: background 0.2s;
+}
+
+.task-item:hover {
+    background: var(--surface-light);
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-light);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.task-title {
+    flex: 1;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    color: var(--text);
+}
+
+.task-item.completed .task-title {
+    color: #89838b;
+    text-decoration: line-through;
+}
+
+.task-status {
+    font-size: 10px;
+    color: var(--warning);
+    background: rgba(229, 173, 101, 0.12);
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.task-item.completed .task-status {
+    color: var(--success);
+    background: rgba(85, 185, 149, 0.12);
+}
+
+.delete-button {
+    border: none;
+    background: transparent;
+    color: #817982;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 14px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.delete-button:hover {
+    color: var(--danger);
+    transform: scale(1.15);
+}
+
+/* =========================================
+   10. MESSAGE VIDE
+========================================= */
+
+.empty-message {
+    text-align: center;
+    padding: 40px 10px;
+    color: var(--muted);
+}
+
+.empty-message i {
+    font-size: 38px;
+    margin-bottom: 16px;
+    color: var(--primary-light);
+}
+
+.empty-message h3 {
+    color: var(--text);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.empty-message p {
+    font-size: 11px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================================
+   11. PIED DE PAGE
+========================================= */
+
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 5px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.app-footer i {
+    color: var(--primary-light);
+}
+
+/* =========================================
+   12. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .app-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .welcome-section {
+        padding: 27px 20px;
+    }
+
+    .welcome-section h2 {
+        font-size: 24px;
+    }
+
+    .welcome-icon {
+        font-size: 38px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .tasks-section {
+        padding: 22px 15px;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .add-button {
+        padding: 15px;
+    }
+
+    .task-status {
+        display: none;
+    }
+
+    .app-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* =========================================
+   13. ACCESSIBILITE
+========================================= */
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   14. CALENDRIER INTERACTIF
+========================================= */
+
+.calendar-container {
+    position: relative;
+    z-index: 10;
+}
+
+.date-badge {
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.date-badge:hover {
+    border-color: var(--primary-light);
+}
+
+.calendar-popup {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 300px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.calendar-header button {
+    background: var(--surface-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background: var(--primary);
+}
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-weekdays {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.calendar-day {
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background: var(--surface-light);
+}
+
+.calendar-day.today {
+    border: 1px solid var(--primary-light);
+    color: #e69ab0;
+}
+
+.calendar-day.selected {
+    background: var(--primary);
+    color: white;
+}
+
+.calendar-day.other-month {
+    color: #68616a;
+}
+
+.today-button {
+    width: 100%;
+    margin-top: 17px;
+    padding: 10px;
+    background: rgba(143, 41, 72, 0.2);
+    color: #e69ab0;
+    border: 1px solid rgba(143, 41, 72, 0.35);
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.today-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+@media (max-width: 400px) {
+    .calendar-popup {
+        width: min(300px, calc(100vw - 24px));
+        right: -5px;
+    }
+}
