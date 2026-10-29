@@ -16,6 +16,10 @@ const tasks = [
     {
         title: "Préparer la séance 2",
         done: false
+    },
+    {
+        title: "Apprendre Git et GitHub",
+        done: false
     }
 ];
 
